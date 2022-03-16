@@ -1,0 +1,84 @@
+body {
+  margin: 0;
+  font-family: Ubuntu;
+  background: rgb(22, 27, 40);
+  color: white;
+}
+
+.container {
+  width: 600px;
+  margin: 100px auto;
+}
+form {
+  background: rgb(33, 40, 59);
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border-radius: 16px;
+}
+
+form textarea {
+  border: 1px solid rgb(47, 55, 73);
+  border-radius: 4px;
+  padding: 12px;
+  color: white;
+  background: transparent;
+  font-family: Ubuntu;
+}
+
+form button {
+  width: 100%;
+  border-radius: 4px;
+  background: rgb(224, 179, 13);
+  color: black;
+  padding: 8px;
+  border: none;
+  margin-top: 8px;
+}
+
+h3 {
+  font-size: 28px;
+}
+
+.change {
+  background: rgb(33, 40, 59);
+  padding: 16px;
+  border-radius: 16px;
+  position: relative;
+}
+
+.change + .change {
+  margin-top: 16px;
+}
+
+.change .date {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: rgb(18, 23, 36);
+  font-size: 12px;
+  padding: 8px;
+  border-radius: 2px;
+}
+
+.change .added {
+  color: green;
+}
+
+.change .removed {
+  color: red;
+}
+
+.change .count {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: fit-content;
+  margin-top: 8px;
+  border-radius: 2px;
+  border: 1px solid rgb(47, 55, 73);
+  padding: 4px 8px;
+}
+.change .count span + span {
+  margin-left: 8px;
+}
