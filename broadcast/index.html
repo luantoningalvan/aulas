@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="input-texto-tarefa" type="text" placeholder="Digite a tarefa" />
+    <button id="botao-adicionar-tarefa">Adicionar</button>
+
+    <ul id="lista-tarefas"></ul>
+
+    <script>
+      const canal = new BroadcastChannel("tarefas");
+
+      function adicionarTarefa(tarefa) {
+        const novaTarefa = document.createElement("li");
+        const listTarefas = document.getElementById("lista-tarefas");
+        novaTarefa.innerHTML = tarefa;
+        listTarefas.appendChild(novaTarefa);
+      }
+
+      canal.onmessage = (e) => {
+        adicionarTarefa(e.data);
+      };
+
+      document
+        .getElementById("botao-adicionar-tarefa")
+        .addEventListener("click", () => {
+          const inputTexto = document.getElementById("input-texto-tarefa");
+          adicionarTarefa(inputTexto.value);
+          canal.postMessage(inputTexto.value);
+          inputTexto.value = "";
+        });
+    </script>
+  </body>
+</html>
